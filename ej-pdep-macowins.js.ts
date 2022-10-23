@@ -13,3 +13,9 @@ class Prenda {
 interface Estado {
   precioFinal(precioBase: number) : number;
 }
+
+class Nueva implements Estado {
+  precioFinal(precioBase: number) {
+    console.log(precioBase);
+  }
+}
