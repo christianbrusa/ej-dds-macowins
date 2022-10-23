@@ -9,3 +9,7 @@ class Prenda {
     
   }
 }
+
+interface Estado {
+  precioFinal(precioBase: number) : number;
+}
