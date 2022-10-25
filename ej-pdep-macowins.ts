@@ -20,6 +20,17 @@ class Nueva implements Estado {
   }
 }
 
+class Promocion implements Estado {
+  
+  constructor(valorFijo: number) {
+    this.valorFijo = valorFijo;
+  }
+  
+  precioFinal(precioBase: number) {
+    console.log(precioBase - this.valorFijo);
+  }
+}
+
 class Liquidacion implements Estado {
   precioFinal(precioBase: number) {
     console.log(precioBase / 2);
