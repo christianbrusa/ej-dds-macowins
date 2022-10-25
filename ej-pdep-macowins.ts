@@ -16,7 +16,7 @@ interface Estado {
 
 class Nueva implements Estado {
   precioFinal(precioBase: number) {
-    console.log(precioBase);
+    return precioBase;
   }
 }
 
@@ -27,13 +27,13 @@ class Promocion implements Estado {
   }
   
   precioFinal(precioBase: number) {
-    console.log(precioBase - this.valorFijo);
+    return precioBase - this.valorFijo;
   }
 }
 
 class Liquidacion implements Estado {
   precioFinal(precioBase: number) {
-    console.log(precioBase / 2);
+    return precioBase / 2;
   }
 }
 
