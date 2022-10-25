@@ -20,6 +20,12 @@ class Nueva implements Estado {
   }
 }
 
+class Liquidacion implements Estado {
+  precioFinal(precioBase: number) {
+    console.log(precioBase / 2);
+  }
+}
+
 const estadoCamisaFloreada = new Nueva();
 
 const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
