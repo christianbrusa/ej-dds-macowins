@@ -49,3 +49,8 @@ const sacoSlim = new Prenda(11500, "Saco", estadoSacoSlim);
 camisaFloreada.precioFinal();
 jean.precioFinal();
 sacoSlim.precioFinal();
+
+//Se desea saber el tipo de una prenda.
+camisaFloreada.tipo;
+jean.tipo;
+sacoSlim.tipo;
