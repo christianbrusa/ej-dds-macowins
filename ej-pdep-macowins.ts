@@ -19,3 +19,10 @@ class Nueva implements Estado {
     console.log(precioBase);
   }
 }
+
+const estadoCamisaFloreada = new Nueva();
+
+const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
+
+//Se desea saber el precio de venta de una prenda.
+camisaFloreada.precioFinal();
