@@ -38,11 +38,14 @@ class Liquidacion implements Estado {
 }
 
 const estadoCamisaFloreada = new Nueva();
+const estadoJean = new Promocion(1200);
 const estadoSacoSlim = new Liquidacion();
 
 const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
+const jean = new Prenda(9000, "Pantalon", estadoJean);
 const sacoSlim = new Prenda(11500, "Saco", estadoSacoSlim);
 
 //Se desea saber el precio de venta de una prenda.
 camisaFloreada.precioFinal();
+jean.precioFinal();
 sacoSlim.precioFinal();
