@@ -1,5 +1,5 @@
 class Prenda {
-  constructor(precioBase: number, tipo: string, estado: Estado) {
+  constructor(precioBase: number, tipo: string, estado: IEstado) {
     this.precioBase = precioBase;
     this.tipo = tipo;
     this.estado = estado;
@@ -10,17 +10,17 @@ class Prenda {
   }
 }
 
-interface Estado {
+interface IEstado {
   precioFinal(precioBase: number) : number;
 }
 
-class Nueva implements Estado {
+class Nueva implements IEstado {
   precioFinal(precioBase: number) {
     return precioBase;
   }
 }
 
-class Promocion implements Estado {
+class Promocion implements IEstado {
   
   constructor(valorFijo: number) {
     this.valorFijo = valorFijo;
@@ -31,7 +31,7 @@ class Promocion implements Estado {
   }
 }
 
-class Liquidacion implements Estado {
+class Liquidacion implements IEstado {
   precioFinal(precioBase: number) {
     return precioBase / 2;
   }
