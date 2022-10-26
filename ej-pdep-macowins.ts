@@ -37,6 +37,18 @@ class Liquidacion implements IEstado {
   }
 }
 
+class Venta {
+  constructor(fecha: string, prendas: Array, tipoPago: string) {
+    this.fecha = fecha;
+    this.prendas = prendas;
+    this.tipoPago = tipoPago;
+  }
+  
+  montoTotal() {
+
+  }
+}
+
 const estadoCamisaFloreada = new Nueva();
 const estadoJean = new Promocion(1200);
 const estadoSacoSlim = new Liquidacion();
