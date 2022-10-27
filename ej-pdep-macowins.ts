@@ -37,6 +37,7 @@ class Liquidacion implements IEstado {
   }
 }
 
+let subtotal = 0;
 class Venta {
   constructor(fecha: string, prendas: Array, tipoPago: ITipoPago) {
     this.fecha = fecha;
@@ -45,7 +46,10 @@ class Venta {
   }
   
   montoTotal() {
-
+    this.prendas.forEach(prenda => {
+      subtotal += prenda.nombre.precioFinal() * prenda.cantidad;
+    })
+    return this.tipoPago.recargo(subtotal);
   }
 }
 
