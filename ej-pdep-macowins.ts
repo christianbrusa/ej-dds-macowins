@@ -53,6 +53,12 @@ interface ITipoPago {
   recargo(subtotal: number) : number;
 }
 
+class Efectivo implements ITipoPago {
+  recargo(subtotal: number) {
+   return subtotal;
+  }
+}
+
 const estadoCamisaFloreada = new Nueva();
 const estadoJean = new Promocion(1200);
 const estadoSacoSlim = new Liquidacion();
