@@ -38,7 +38,7 @@ class Liquidacion implements IEstado {
 }
 
 class Venta {
-  constructor(fecha: string, prendas: Array, tipoPago: string) {
+  constructor(fecha: string, prendas: Array, tipoPago: ITipoPago) {
     this.fecha = fecha;
     this.prendas = prendas;
     this.tipoPago = tipoPago;
