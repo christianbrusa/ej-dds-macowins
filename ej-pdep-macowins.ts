@@ -49,6 +49,10 @@ class Venta {
   }
 }
 
+interface ITipoPago {
+  recargo(subtotal: number) : number;
+}
+
 const estadoCamisaFloreada = new Nueva();
 const estadoJean = new Promocion(1200);
 const estadoSacoSlim = new Liquidacion();
