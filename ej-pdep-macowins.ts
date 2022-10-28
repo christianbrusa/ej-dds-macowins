@@ -63,6 +63,18 @@ class Efectivo implements ITipoPago {
   }
 }
 
+class Tarjeta implements ITipoPago {
+  
+  constructor(cantidadDeCuotas: number, coeficienteFijo: number) {
+    this.coeficienteFijo = coeficienteFijo;
+    this.cantidadDeCuotas = cantidadDeCuotas;
+  }
+  
+  recargo(subtotal: number) {
+    
+  }
+}
+
 const estadoCamisaFloreada = new Nueva();
 const estadoJean = new Promocion(1200);
 const estadoSacoSlim = new Liquidacion();
