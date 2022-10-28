@@ -71,7 +71,7 @@ class Tarjeta implements ITipoPago {
   }
   
   recargo(subtotal: number) {
-    
+    return subtotal + (this.coeficienteFijo * this.cantidadDeCuotas);
   }
 }
 
