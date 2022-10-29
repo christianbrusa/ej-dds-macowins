@@ -1,3 +1,20 @@
+class macowins {
+  constructor(listadoDeVentas: Array){
+    this.listadoDeVentas = listadoDeVentas;
+  }
+  
+  obtenerGananciasDelDia(dia: string) {
+    let gananciasTotal = 0;
+    this.listadoDeVentas.forEach(venta => {
+      if(venta.fecha === dia) {
+        gananciasTotal += venta.montoTotal();
+      }
+    })
+    return gananciasTotal;
+  }
+  
+}
+
 class Prenda {
   constructor(precioBase: number, tipo: string, estado: IEstado) {
     this.precioBase = precioBase;
