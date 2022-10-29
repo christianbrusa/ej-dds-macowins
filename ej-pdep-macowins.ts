@@ -86,12 +86,13 @@ class Tarjeta implements ITipoPago {
 const estadoCamisaFloreada = new Nueva();
 const estadoJean = new Promocion(1200);
 const estadoSacoSlim = new Liquidacion();
-const pagoDePrueba = new Efectivo();
+const pagoDePruebaConEfectivo = new Efectivo();
+const pagoDePruebaConTarjeta = new Tarjeta(3, 1.1);
 
 const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
 const jean = new Prenda(9000, "Pantalon", estadoJean);
 const sacoSlim = new Prenda(11500, "Saco", estadoSacoSlim);
-const ventaPrueba = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}, {nombre: jean, cantidad: 1}, {nombre: sacoSlim, cantidad: 2}], pagoDePrueba);
+const ventaPrueba = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}, {nombre: jean, cantidad: 1}, {nombre: sacoSlim, cantidad: 2}], pagoDePruebaConTarjeta);
 
 //Se desea saber el precio de venta de una prenda.
 camisaFloreada.precioFinal();
