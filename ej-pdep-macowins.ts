@@ -1,5 +1,5 @@
 class macowins {
-  constructor(listadoDeVentas: Array){
+  constructor(listadoDeVentas: Array) {
     this.listadoDeVentas = listadoDeVentas;
   }
   
@@ -100,27 +100,34 @@ class Tarjeta implements ITipoPago {
   }
 }
 
+//Instancio estados
 const estadoCamisaFloreada = new Nueva();
 const estadoJean = new Promocion(1200);
 const estadoSacoSlim = new Liquidacion();
+
+//Instancio pagos
 const pagoDePruebaConEfectivo = new Efectivo();
 const pagoDePruebaConTarjeta = new Tarjeta(3, 1.1);
 
+//Instancio prendas
 const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
 const jean = new Prenda(9000, "Pantalon", estadoJean);
 const sacoSlim = new Prenda(11500, "Saco", estadoSacoSlim);
+
+//Instancio ventas
 const ventaPrueba1 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}, {nombre: jean, cantidad: 1}, {nombre: sacoSlim, cantidad: 2}], pagoDePruebaConTarjeta);
 const ventaPrueba2 = new Venta("26-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConTarjeta);
 const ventaPrueba3 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConEfectivo);
 
+//Instancio listado de ventas
 const listadoDeVentasPrueba = new macowins([ventaPrueba1, ventaPrueba2, ventaPrueba3]);
 
-//Se desea saber el precio de venta de una prenda.
+//Requerimiento: Se desea saber el precio de venta de una prenda.
 camisaFloreada.precioFinal();
 jean.precioFinal();
 sacoSlim.precioFinal();
 
-//Se desea saber el tipo de una prenda.
+//Requerimiento: Se desea saber el tipo de una prenda.
 camisaFloreada.tipo;
 jean.tipo;
 sacoSlim.tipo;
@@ -129,4 +136,5 @@ ventaPrueba1.montoTotal();
 ventaPrueba2.montoTotal();
 ventaPrueba3.montoTotal();
 
+//Requerimiento: Se desea saber las ganancias de un determinado dia.
 listadoDeVentasPrueba.obtenerGananciasDelDia("25-10-2022");
