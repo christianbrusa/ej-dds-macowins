@@ -49,29 +49,37 @@ class Venta {
     this.prendas.forEach(prenda => {
       subtotal += prenda.nombre.precioFinal() * prenda.cantidad;
     })
-    return this.tipoPago.recargo(subtotal);
+    return this.tipoPago.recargo(subtotal, this.prendas);
   }
 }
 
 interface ITipoPago {
-  recargo(subtotal: number) : number;
+  recargo(subtotal: number, prendasVendidas: Array) : number;
 }
 
 class Efectivo implements ITipoPago {
-  recargo(subtotal: number) {
+  recargo(subtotal: number, prendasVendidas: Array) {
    return subtotal;
   }
 }
 
+let valorAgregadoTotal = 0;
 class Tarjeta implements ITipoPago {
   
   constructor(cantidadDeCuotas: number, coeficienteFijo: number) {
     this.coeficienteFijo = coeficienteFijo;
     this.cantidadDeCuotas = cantidadDeCuotas;
   }
+
+  valorAgregado(prendasVendidas: Array) {
+    prendasVendidas.forEach(prenda => {
+      valorAgregadoTotal += (prenda.nombre.precioFinal() * 1.01);
+    })
+    return valorAgregadoTotal;
+  }
   
-  recargo(subtotal: number) {
-    return subtotal + (this.coeficienteFijo * this.cantidadDeCuotas);
+  recargo(subtotal: number, prendasVendidas: Array) {
+    return subtotal + (this.coeficienteFijo * this.cantidadDeCuotas + this.valorAgregado(prendasVendidas));
   }
 }
 
