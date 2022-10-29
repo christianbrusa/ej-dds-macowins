@@ -37,7 +37,6 @@ class Liquidacion implements IEstado {
   }
 }
 
-let subtotal = 0;
 class Venta {
   constructor(fecha: string, prendas: Array, tipoPago: ITipoPago) {
     this.fecha = fecha;
@@ -46,6 +45,7 @@ class Venta {
   }
   
   montoTotal() {
+    let subtotal = 0;
     this.prendas.forEach(prenda => {
       subtotal += prenda.nombre.precioFinal() * prenda.cantidad;
     })
@@ -63,7 +63,6 @@ class Efectivo implements ITipoPago {
   }
 }
 
-let valorAgregadoTotal = 0;
 class Tarjeta implements ITipoPago {
   
   constructor(cantidadDeCuotas: number, coeficienteFijo: number) {
@@ -72,6 +71,7 @@ class Tarjeta implements ITipoPago {
   }
 
   valorAgregado(prendasVendidas: Array) {
+    let valorAgregadoTotal = 0;
     prendasVendidas.forEach(prenda => {
       valorAgregadoTotal += (prenda.nombre.precioFinal() * 1.01);
     })
@@ -92,7 +92,9 @@ const pagoDePruebaConTarjeta = new Tarjeta(3, 1.1);
 const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
 const jean = new Prenda(9000, "Pantalon", estadoJean);
 const sacoSlim = new Prenda(11500, "Saco", estadoSacoSlim);
-const ventaPrueba = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}, {nombre: jean, cantidad: 1}, {nombre: sacoSlim, cantidad: 2}], pagoDePruebaConTarjeta);
+const ventaPrueba1 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}, {nombre: jean, cantidad: 1}, {nombre: sacoSlim, cantidad: 2}], pagoDePruebaConTarjeta);
+const ventaPrueba2 = new Venta("26-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConTarjeta);
+const ventaPrueba3 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConEfectivo);
 
 //Se desea saber el precio de venta de una prenda.
 camisaFloreada.precioFinal();
@@ -104,4 +106,6 @@ camisaFloreada.tipo;
 jean.tipo;
 sacoSlim.tipo;
 
-ventaPrueba.montoTotal();
+ventaPrueba1.montoTotal();
+ventaPrueba2.montoTotal();
+ventaPrueba3.montoTotal();
