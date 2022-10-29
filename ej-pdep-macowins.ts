@@ -113,6 +113,8 @@ const ventaPrueba1 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad:
 const ventaPrueba2 = new Venta("26-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConTarjeta);
 const ventaPrueba3 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConEfectivo);
 
+const listadoDeVentasPrueba = new macowins([ventaPrueba1, ventaPrueba2, ventaPrueba3]);
+
 //Se desea saber el precio de venta de una prenda.
 camisaFloreada.precioFinal();
 jean.precioFinal();
@@ -126,3 +128,5 @@ sacoSlim.tipo;
 ventaPrueba1.montoTotal();
 ventaPrueba2.montoTotal();
 ventaPrueba3.montoTotal();
+
+listadoDeVentasPrueba.obtenerGananciasDelDia("25-10-2022");
