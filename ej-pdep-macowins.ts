@@ -1,4 +1,4 @@
-class macowins {
+class Macowins {
   constructor(listadoDeVentas: Array) {
     this.listadoDeVentas = listadoDeVentas;
   }
@@ -120,7 +120,7 @@ const ventaPrueba2 = new Venta("26-10-2022", [{nombre: camisaFloreada, cantidad:
 const ventaPrueba3 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConEfectivo);
 
 //Instancio listado de ventas
-const listadoDeVentasPrueba = new macowins([ventaPrueba1, ventaPrueba2, ventaPrueba3]);
+const listadoDeVentasPrueba = new Macowins([ventaPrueba1, ventaPrueba2, ventaPrueba3]);
 
 //Requerimiento: Se desea saber el precio de venta de una prenda.
 camisaFloreada.precioFinal();
