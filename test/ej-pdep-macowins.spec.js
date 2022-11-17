@@ -31,3 +31,9 @@ const ventaPrueba3 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad:
 
 //Instancio listado de ventas
 const listadoDeVentasPrueba = new Macowins([ventaPrueba1, ventaPrueba2, ventaPrueba3]);
+
+describe("Se desea saber el tipo de una prenda", () => {
+    it("El de una camisa floreada deberia ser: 'Camisa'", () => {
+        camisaFloreada.tipo.should.be.eql("Camisa");
+    });
+});
