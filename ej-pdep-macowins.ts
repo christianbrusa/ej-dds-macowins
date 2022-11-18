@@ -23,7 +23,7 @@ class Prenda {
   }
   
   precioFinal() {
-    this.estado.precioFinal(this.precioBase);
+    return this.estado.precioFinal(this.precioBase);
   }
 }
 
