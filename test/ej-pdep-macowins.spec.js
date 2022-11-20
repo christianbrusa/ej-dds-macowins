@@ -21,16 +21,6 @@ const pagoDePruebaConTarjeta = new Tarjeta(3, 1.1);
 
 //Instancio prendas
 const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
-const jean = new Prenda(9000, "Pantalon", estadoJean);
-const sacoSlim = new Prenda(11500, "Saco", estadoSacoSlim);
-
-//Instancio ventas
-const ventaPrueba1 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}, {nombre: jean, cantidad: 1}, {nombre: sacoSlim, cantidad: 2}], pagoDePruebaConTarjeta);
-const ventaPrueba2 = new Venta("26-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConTarjeta);
-const ventaPrueba3 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConEfectivo);
-
-//Instancio listado de ventas
-const listadoDeVentasPrueba = new Macowins([ventaPrueba1, ventaPrueba2, ventaPrueba3]);
 
 describe("Se desea saber el tipo de una prenda", () => {
     it("El de una camisa floreada deberia ser: 'Camisa'", () => {
