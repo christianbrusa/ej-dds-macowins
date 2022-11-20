@@ -21,7 +21,7 @@ var Prenda = /** @class */ (function () {
         this.estado = estado;
     }
     Prenda.prototype.precioFinal = function () {
-        this.estado.precioFinal(this.precioBase);
+        return this.estado.precioFinal(this.precioBase);
     };
     return Prenda;
 }());
