@@ -27,3 +27,27 @@ describe("Se desea saber el tipo de una prenda", () => {
         camisaFloreada.tipo.should.be.eql("Camisa");
     });
 });
+
+describe("Se desea saber el precio de venta de una prenda", () => {
+    describe("- Si se encuentra nueva, deberia ser igual al precio base", () => {
+        it("El precio de la camisa floreada deberia ser: $4350", () => {
+            camisaFloreada.precioFinal().should.be.eql(4350);
+        });
+    });
+    describe("- Si se encuentra en promoción, deberia ser igual al precio base menos el valor fijo decicido por el usuario", () => {
+        beforeEach(function() {
+            camisaFloreada.estado = new Promocion(1400);
+        });
+        it("El valor fijo de promoción es de $1400 por lo que el precio de la camisa floreada deberia ser: $2950", () => {
+            camisaFloreada.precioFinal().should.be.eql(2950);
+        });
+    });
+    describe("- Si se encuentra en liquidación, deberia ser la mitad de su precio base", () => {
+        beforeEach(function() {
+            camisaFloreada.estado = new Liquidacion();
+        });
+        it("El precio de la camisa floreada deberia ser: $2175", () => {
+            camisaFloreada.precioFinal().should.be.eql(2175);
+        });
+    });
+});
