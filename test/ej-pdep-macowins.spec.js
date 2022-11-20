@@ -11,16 +11,16 @@ const {
 require("should");
 
 //Instancio estados
-const estadoCamisaFloreada = new Nueva();
-const estadoJean = new Promocion(1200);
-const estadoSacoSlim = new Liquidacion();
+const nueva = new Nueva();
+const promocion = new Promocion(1200);
+const liquidacion = new Liquidacion();
 
 //Instancio pagos
 const pagoDePruebaConEfectivo = new Efectivo();
 const pagoDePruebaConTarjeta = new Tarjeta(3, 1.1);
 
 //Instancio prendas
-const camisaFloreada = new Prenda(4350, "Camisa", estadoCamisaFloreada);
+const camisaFloreada = new Prenda(4350, "Camisa", nueva);
 
 describe("Se desea saber el tipo de una prenda", () => {
     it("El de una camisa floreada deberia ser: 'Camisa'", () => {
