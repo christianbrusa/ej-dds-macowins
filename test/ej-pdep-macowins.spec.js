@@ -10,6 +10,8 @@ const {
 } = require("../tsc/ej-pdep-macowins.js");
 require("should");
 
+let listadoDeVentasPrueba;
+
 //Instancio estados
 const nueva = new Nueva();
 
@@ -64,6 +66,20 @@ describe("Se desea saber el monto total de una venta", () => {
         });
         it("El total de una venta que contiene una camisa floreada nueva, en tres cuotas y con un coeficiente del 1.1 deberia ser: $8746.8", () => {
             ventaPrueba.montoTotal().should.be.eql(8746.8);
+        });
+    });
+});
+
+describe("Se desea saber las ganancias de un determinado dia", () => {
+    describe("Durante el dia 25-10-2022 se realizaron 2 ventas: Una de ellas se pagó con efectivo e incluye dos camisas floreadas. La otra, se realizó con tarjeta e incluye una camisa floreada", () => {
+        beforeEach(function() {
+            const pagoDePruebaConTarjeta = new Tarjeta(3, 1.2);
+            const ventaPrueba1 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 2}], pagoDePruebaConEfectivo);
+            const ventaPrueba2 = new Venta("25-10-2022", [{nombre: camisaFloreada, cantidad: 1}], pagoDePruebaConTarjeta);
+            listadoDeVentasPrueba = new Macowins([ventaPrueba1, ventaPrueba2]);
+        });
+        it("La ganancia de este dia deberia ser: $17447.1", () => {
+            listadoDeVentasPrueba.obtenerGananciasDelDia("25-10-2022").should.be.eql(17447.1);
         });
     });
 });

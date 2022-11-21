@@ -9,7 +9,6 @@ var Macowins = /** @class */ (function () {
                 gananciasTotal += venta.montoTotal();
             }
         });
-        console.log(gananciasTotal);
         return gananciasTotal;
     };
     return Macowins;
