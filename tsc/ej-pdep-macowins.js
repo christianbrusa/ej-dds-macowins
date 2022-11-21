@@ -35,6 +35,9 @@ var Nueva = /** @class */ (function () {
 }());
 var Promocion = /** @class */ (function () {
     function Promocion(valorFijo) {
+        if(valorFijo < 0) {
+            throw new Error("El valor fijo de promoción debe ser mayor o igual a cero");
+        }
         this.valorFijo = valorFijo;
     }
     Promocion.prototype.precioFinal = function (precioBase) {

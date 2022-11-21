@@ -40,6 +40,9 @@ class Nueva implements IEstado {
 class Promocion implements IEstado {
   
   constructor(valorFijo: number) {
+    if(valorFijo < 0) {
+      throw new Error("El valor fijo de promoción debe ser mayor o igual a cero");
+    }
     this.valorFijo = valorFijo;
   }
   
@@ -102,7 +105,7 @@ class Tarjeta implements ITipoPago {
 
 //Instancio estados
 const estadoCamisaFloreada = new Nueva();
-const estadoJean = new Promocion(1200);
+const estadoJean = new Promocion(-10);
 const estadoSacoSlim = new Liquidacion();
 
 //Instancio pagos
