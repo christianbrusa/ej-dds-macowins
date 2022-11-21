@@ -78,6 +78,12 @@ var Efectivo = /** @class */ (function () {
 }());
 var Tarjeta = /** @class */ (function () {
     function Tarjeta(cantidadDeCuotas, coeficienteFijo) {
+        if(coeficienteFijo < 0) {
+            throw new Error("El coeficiente fijo debe ser mayor o igual a cero");
+        }
+        if(cantidadDeCuotas < 1) {
+            throw new Error("La cantidad de cuotas debe ser mayor o igual a uno");
+        }
         this.coeficienteFijo = coeficienteFijo;
         this.cantidadDeCuotas = cantidadDeCuotas;
     }

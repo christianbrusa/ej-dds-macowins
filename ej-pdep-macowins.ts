@@ -86,6 +86,12 @@ class Efectivo implements ITipoPago {
 class Tarjeta implements ITipoPago {
   
   constructor(cantidadDeCuotas: number, coeficienteFijo: number) {
+    if(coeficienteFijo < 0) {
+      throw new Error("El coeficiente fijo debe ser mayor o igual a cero");
+    }
+    if(cantidadDeCuotas < 1) {
+      throw new Error("La cantidad de cuotas debe ser mayor o igual a uno");
+    }
     this.coeficienteFijo = coeficienteFijo;
     this.cantidadDeCuotas = cantidadDeCuotas;
   }
